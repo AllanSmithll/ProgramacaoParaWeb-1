@@ -4,6 +4,6 @@ let y = 20;
 console.log(true);
 
 // Questão 8 de laços
-for (let i = 0; i<0;;; i++) {
+for (let i = 0; i<0; i++) {
     console.log(i);
 }
