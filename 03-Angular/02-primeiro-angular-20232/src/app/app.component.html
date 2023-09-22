@@ -1,0 +1,21 @@
+Olá, mundo!
+
+{{title}}
+
+<br>
+<br>
+<h1>Cadastro de Alunos</h1>
+Matrícula: <input [(ngModel)]="alunoTratamento.matricula"> <br>
+Nome: <input [(ngModel)]="alunoTratamento.nome"> <br>
+Idade: <input [(ngModel)]="alunoTratamento.idade"> <br>
+
+{{alunoTratamento.nome}}-{{alunoTratamento.matricula}}-{{alunoTratamento.idade}}
+<br>
+<button (click)="cadastrar()">Cadastrar</button>
+<br>
+<br>
+<ul>
+    <li *ngFor="let aluno of alunos">
+        {{aluno.matricula}} - {{aluno.nome}} - <button (click)="remover(aluno)">X</button>
+    </li>
+</ul>
