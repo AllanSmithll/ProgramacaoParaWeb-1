@@ -1,0 +1,37 @@
+Olá, mundo!
+
+{{title}}
+
+<br>
+<br>
+<h1>Cadastro de Alunos</h1>
+Matrícula: <input [(ngModel)]="alunoTratamento.matricula"> <br>
+Nome: <input [(ngModel)]="alunoTratamento.nome"> <br>
+Idade: <input [(ngModel)]="alunoTratamento.idade"> <br>
+
+{{alunoTratamento.nome}}-{{alunoTratamento.matricula | matricula}}-{{alunoTratamento.idade}}
+<br>
+<button (click)="cadastrar()">Cadastrar</button>
+<br>
+<div class="mensagem-erro">{{mensagemErro}}</div>
+<br>
+
+<ul>
+    <li *ngFor="let aluno of alunos">
+        {{aluno.matricula | matricula}}
+        <div *ngIf="aluno.idade >=18">
+          -
+          {{aluno.nome | titlecase}}
+        </div>
+        - <button (click)="remover(aluno)">X</button>
+    </li>
+</ul>
+
+<br>
+Pesquisar: <input (keyup)="pesquisar(inputPesquisa.value)" #inputPesquisa>
+<ul>
+  <li *ngFor="let aluno of alunosPesquisa">
+    {{aluno.matricula | matricula}}-{{aluno.nome | titlecase}}
+  </li>
+</ul>
+
