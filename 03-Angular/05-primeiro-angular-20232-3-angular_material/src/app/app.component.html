@@ -1,0 +1,51 @@
+<h1>Cadastro de Alunos</h1>
+
+<label [matBadge]="alunos.length" matBadgeOverlap="false">Alunos</label>
+
+<br>
+<mat-form-field>
+  Matrícula: <input matInput [(ngModel)]="alunoTratamento.matricula" placeholder="Digite sua matrícula">
+</mat-form-field>
+<mat-form-field>
+  Nome: <input matInput [(ngModel)]="alunoTratamento.nome" placeholder="Digite seu nome">
+</mat-form-field>
+<mat-form-field>
+  Idade: <input matInput [(ngModel)]="alunoTratamento.idade" placeholder="Digite sua idade">
+</mat-form-field>
+
+<button mat-raised-button color="primary" (click)="cadastrar()">Cadastrar</button>
+<br>
+<div class="mensagem-erro">{{mensagemErro}}</div>
+<br>
+<mat-card class="example-card" *ngFor="let aluno of alunos">
+  <mat-card-header>
+    <div mat-card-avatar class="example-header-image"></div>
+    <mat-card-title>{{aluno.nome | titlecase}}</mat-card-title>
+    <mat-card-subtitle>{{aluno.matricula | matricula}}</mat-card-subtitle>
+  </mat-card-header>
+  <img mat-card-image src="https://www.mundobrink.com/blog/wp-content/uploads/2016/03/TDHA-750x410.jpg" alt="Aluno">
+  <mat-card-content>
+    <p>
+      O aluno {{aluno.nome}}, com idade {{aluno.idade}}, obteve nota máxima...
+    </p>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-fab color="primary" (click)="remover(aluno)">
+      <mat-icon> delete</mat-icon>
+    </button>
+    <button mat-icon-button>
+      <mat-icon>edit</mat-icon>
+    </button>
+  </mat-card-actions>
+</mat-card>
+
+
+
+<br>
+Pesquisar: <input (keyup)="pesquisar(inputPesquisa.value)" #inputPesquisa>
+<ul>
+  <li *ngFor="let aluno of alunosPesquisa">
+    {{aluno.matricula | matricula}}-{{aluno.nome | titlecase}}
+  </li>
+</ul>
+

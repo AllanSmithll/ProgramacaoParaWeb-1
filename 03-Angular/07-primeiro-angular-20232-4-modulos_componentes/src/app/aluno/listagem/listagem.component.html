@@ -1,0 +1,32 @@
+<mat-card class="example-card" *ngFor="let aluno of alunos">
+  <mat-card-header>
+    <div mat-card-avatar class="example-header-image"></div>
+    <mat-card-title>{{aluno.nome | titlecase}}</mat-card-title>
+    <mat-card-subtitle>{{aluno.matricula | matricula}}</mat-card-subtitle>
+  </mat-card-header>
+  <img mat-card-image src="https://www.mundobrink.com/blog/wp-content/uploads/2016/03/TDHA-750x410.jpg" alt="Aluno">
+  <mat-card-content>
+    <p>
+      O aluno {{aluno.nome}}, com idade {{aluno.idade}}, obteve nota máxima...
+    </p>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-fab color="primary" (click)="remover(aluno)">
+      <mat-icon> delete</mat-icon>
+    </button>
+    <button mat-icon-button>
+      <mat-icon>edit</mat-icon>
+    </button>
+  </mat-card-actions>
+</mat-card>
+
+
+
+<br>
+Pesquisar: <input (keyup)="pesquisar(inputPesquisa.value)" #inputPesquisa>
+<ul>
+  <li *ngFor="let aluno of alunosPesquisa">
+    {{aluno.matricula | matricula}}-{{aluno.nome | titlecase}}
+  </li>
+</ul>
+
