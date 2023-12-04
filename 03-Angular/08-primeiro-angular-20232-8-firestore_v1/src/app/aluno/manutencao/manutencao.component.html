@@ -1,0 +1,18 @@
+<h1>Cadastro de Alunos</h1>
+
+
+<br>
+<mat-form-field>
+  Matrícula: <input matInput [(ngModel)]="alunoTratamento.matricula" placeholder="Digite sua matrícula">
+</mat-form-field>
+<mat-form-field>
+  Nome: <input matInput [(ngModel)]="alunoTratamento.nome" placeholder="Digite seu nome">
+</mat-form-field>
+<mat-form-field>
+  Idade: <input matInput [(ngModel)]="alunoTratamento.idade" placeholder="Digite sua idade">
+</mat-form-field>
+
+<button mat-raised-button color="primary" (click)="cadastrarOuAtualizar()">{{nomeBotao}}</button>
+<br>
+<div class="mensagem-erro">{{mensagemErro}}</div>
+<br>
